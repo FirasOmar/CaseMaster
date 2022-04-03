@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace CaseMaster.Manager
 {
-    public class ProductManager : CommonManager<Organization>, IOrganizationManager
+    public class OrganizationManager : CommonManager<Organization>, IOrganizationManager
     {
-        public ProductManager(AppDBContext dbContext) : base(new OrganizationRepository(dbContext))
+        public OrganizationManager(AppDBContext dbContext) : base(new OrganizationRepository(dbContext))
         {
         }
     }
