@@ -21,7 +21,8 @@ namespace CaseMaster.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var organizations = _OrganizationManager.GetAll();
+            return View(organizations);
         }
 
         public IActionResult Create()
@@ -39,6 +40,7 @@ namespace CaseMaster.Controllers
             if (isSaved)
             {
                 msg = "saved successfuly.";
+                return RedirectToAction("index");
             }
             else
             {

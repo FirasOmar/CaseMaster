@@ -146,3 +146,4 @@ C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\bin\Debug\net5.0\zh
 C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\Organization\Create.cshtml.g.cs
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\Organization\Index.cshtml.g.cs
