@@ -49,5 +49,26 @@ namespace CaseMaster.Controllers
             ViewBag.Msg = msg;
             return View();
         }
+
+        public ActionResult Edit(int id)
+        {
+            var organization = _OrganizationManager.GetFirstOrDefault(c => c.Id == id);
+            if(organization == null)
+            {
+                return NotFound();
+            }
+            return View(organization);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Organization organization)
+        {
+            var isUpdated = _OrganizationManager.Update(organization);
+            if (isUpdated)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(organization);
+        }
     }
 }
