@@ -70,5 +70,34 @@ namespace CaseMaster.Controllers
             }
             return View(organization);
         }
+
+        public ActionResult Details(int id)
+        {
+            var organization = _OrganizationManager.GetFirstOrDefault(c => c.Id == id);
+            if(organization == null)
+            {
+                return NotFound();
+            }
+            return View(organization);
+        }
+        public ActionResult Delete(int id)
+        {
+            var organization = _OrganizationManager.GetFirstOrDefault(c => c.Id==id);
+            if(organization == null)
+            {
+                return NotFound();
+            }
+            return View(organization);
+        }
+        [HttpPost]
+        public ActionResult Delete(Organization organization)
+        {
+            bool isDeleted = _OrganizationManager.Delete(organization);
+            if (isDeleted)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(organization);
+        }
     }
 }
