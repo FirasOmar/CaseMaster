@@ -12,12 +12,10 @@ namespace CaseMaster.Controllers
 {
     public class OrganizationController : Controller
     {
-        private AppDBContext _dbContext;
-        private IOrganizationManager _OrganizationManager;
-        public OrganizationController(AppDBContext dbContext)
+        private OrganizationManager _OrganizationManager;
+        public OrganizationController(OrganizationManager organizationManager)
         {
-            _dbContext = dbContext;
-            _OrganizationManager = new OrganizationManager(_dbContext);
+            _OrganizationManager = organizationManager;
         }
         public IActionResult Index()
         {
