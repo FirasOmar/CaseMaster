@@ -3,6 +3,7 @@ using CaseMaster.Manager;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,6 +30,7 @@ namespace CaseMaster
             services.AddControllersWithViews();
             services.AddDbContext<AppDBContext>(options
                 => options.UseSqlServer(Configuration.GetConnectionString("AppDBContext")));
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDBContext>();
             services.AddScoped<OrganizationManager>();
         }
 
@@ -49,7 +51,7 @@ namespace CaseMaster
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
