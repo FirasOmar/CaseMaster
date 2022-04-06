@@ -158,3 +158,8 @@ C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\re
 C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\CaseMaster.pdb
 C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\CaseMaster.genruntimeconfig.cache
 C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\User\Index.cshtml.g.cs
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\User\Create.cshtml.g.cs
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\User\Edit.cshtml.g.cs
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\User\Details.cshtml.g.cs
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\User\Delete.cshtml.g.cs
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\CaseMaster.csproj.AssemblyReference.cache
