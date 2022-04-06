@@ -156,3 +156,5 @@ C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\bin\Debug\net5.0\Mi
 C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\Account\Logout.cshtml.g.cs

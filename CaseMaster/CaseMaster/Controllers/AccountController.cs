@@ -47,5 +47,48 @@ namespace CaseMaster.Controllers
             }
             return View();
         }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<ActionResult> Login (LoginViewModel login,string returnUrl= null)
+        {
+            if (ModelState.IsValid)
+            {
+              var identityResult =  await signInManager.PasswordSignInAsync( login.Email, login.Password, login.RememberMe, false);
+                if (identityResult.Succeeded)
+                {
+                    if(returnUrl == null || returnUrl == "/")
+                    {
+                      return  RedirectToAction("Index","Home");
+                    }
+                    else
+                    {
+                     return   RedirectToPage(returnUrl);
+                    }
+                }
+                ModelState.AddModelError("", "Username or Password incorrect");
+            }
+            return RedirectToAction( "Login", "Account");
+        }
+      
+        public ActionResult Logout()
+        {           
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Logout(int i=1)
+        {
+           await signInManager.SignOutAsync();
+            return RedirectToAction("Login","Account");
+        }
+        [HttpPost]
+        public IActionResult DontLogout()
+        {
+            
+            return RedirectToAction("Index","Home");
+        }
     }
 }
