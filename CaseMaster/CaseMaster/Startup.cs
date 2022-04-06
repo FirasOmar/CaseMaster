@@ -35,6 +35,7 @@ namespace CaseMaster
             services.ConfigureApplicationCookie(config =>
             config.LoginPath="/Account/Login");
             services.AddScoped<OrganizationManager>();
+            services.AddScoped<ApplicationUserManager>();
 
         }
 

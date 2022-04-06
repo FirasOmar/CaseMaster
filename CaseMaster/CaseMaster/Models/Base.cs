@@ -11,6 +11,7 @@ namespace CaseMaster.Models
         [Key]
         [Required]
         public int Id { get; set; }
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public DateTime Created { get; set; } 
         public string CreatedBy { get; set; }
     }

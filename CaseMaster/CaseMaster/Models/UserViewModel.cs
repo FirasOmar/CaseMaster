@@ -11,6 +11,8 @@ namespace CaseMaster.Models
     public class UserViewModel:IdentityUser
     {
         public bool IsActive { get; set; }
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public DateTime Created { get; set; }
+        public string CreatedBy { get; set; }
     }
 }
