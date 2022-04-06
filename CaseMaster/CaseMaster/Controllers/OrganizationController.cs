@@ -2,6 +2,7 @@
 using CaseMaster.Interfaces.Manager;
 using CaseMaster.Manager;
 using CaseMaster.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace CaseMaster.Controllers
 {
+    [Authorize]
     public class OrganizationController : Controller
     {
         private OrganizationManager _OrganizationManager;

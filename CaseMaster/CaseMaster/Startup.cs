@@ -31,7 +31,10 @@ namespace CaseMaster
             services.AddDbContext<AppDBContext>(options
                 => options.UseSqlServer(Configuration.GetConnectionString("AppDBContext")));
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDBContext>();
+            services.ConfigureApplicationCookie(config =>
+            config.LoginPath="/Account/Login");
             services.AddScoped<OrganizationManager>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
