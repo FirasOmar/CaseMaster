@@ -36,6 +36,7 @@ namespace CaseMaster.Controllers
 
             string msg = "";
             organization.Created = DateTime.Now;
+            organization.CreatedBy = User.Identity.Name;
             bool isSaved = _OrganizationManager.Add(organization);
             if (isSaved)
             {

@@ -1,5 +1,6 @@
 using CaseMaster.Data;
 using CaseMaster.Manager;
+using CaseMaster.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,7 +31,7 @@ namespace CaseMaster
             services.AddControllersWithViews();
             services.AddDbContext<AppDBContext>(options
                 => options.UseSqlServer(Configuration.GetConnectionString("AppDBContext")));
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDBContext>();
+            services.AddIdentity<UserViewModel, IdentityRole>().AddEntityFrameworkStores<AppDBContext>();
             services.ConfigureApplicationCookie(config =>
             config.LoginPath="/Account/Login");
             services.AddScoped<OrganizationManager>();

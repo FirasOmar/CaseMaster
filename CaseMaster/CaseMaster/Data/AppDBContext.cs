@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace CaseMaster.Data
 {
-    public class AppDBContext : IdentityDbContext
+    public class AppDBContext : IdentityDbContext<UserViewModel>
     {
         public AppDBContext(DbContextOptions<AppDBContext> options) : base(options)
         {
 
         }
         public DbSet<Organization> Organizations {get;set;}
+        public DbSet<UserViewModel> UserViewModel { get; set; }
     }
 }
