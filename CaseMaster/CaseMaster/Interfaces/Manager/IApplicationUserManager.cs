@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CaseMaster.Interfaces.Manager
 {
-    interface IApplicationUserManager: ICommonManager<UserViewModel>
+    interface IApplicationUserManager: ICommonManager<User>
     {
     }
 }

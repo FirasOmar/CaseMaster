@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CaseMaster.Repository
 {
-    public class ApplicationUserRepository : CommonRepository<UserViewModel>, IApplicationUserRepository
+    public class ApplicationUserRepository : CommonRepository<User>, IApplicationUserRepository
     {
         public ApplicationUserRepository(DbContext dbContext) : base(dbContext)
         {

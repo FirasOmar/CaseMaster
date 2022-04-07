@@ -10,10 +10,10 @@ namespace CaseMaster.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<UserViewModel> userManager;
-        private readonly SignInManager<UserViewModel> signInManager;
+        private readonly UserManager<User> userManager;
+        private readonly SignInManager<User> signInManager;
 
-        public AccountController(UserManager<UserViewModel> userManager, SignInManager<UserViewModel> signInManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
@@ -29,7 +29,7 @@ namespace CaseMaster.Controllers
         [HttpPost]
         public async Task<ActionResult> Register(Register register)
         {
-            var user = new UserViewModel()
+            var user = new User()
             {
                 UserName=register.Email,
                 Email = register.Email

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CaseMaster.Interfaces.Reporsitory
 {
-    interface IApplicationUserRepository: ICommonManager<UserViewModel>
+    interface IApplicationUserRepository: ICommonManager<User>
     {
     }
 }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CaseMaster.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20220406111845_4")]
-    partial class _4
+    [Migration("20220407075124_5")]
+    partial class _5
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,6 +49,7 @@ namespace CaseMaster.Migrations
             modelBuilder.Entity("CaseMaster.Models.User", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")

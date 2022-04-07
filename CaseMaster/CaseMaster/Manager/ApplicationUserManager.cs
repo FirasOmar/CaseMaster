@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CaseMaster.Manager
 {
-    public class ApplicationUserManager : CommonManager<UserViewModel>, IApplicationUserManager
+    public class ApplicationUserManager : CommonManager<User>, IApplicationUserManager
     {
         public ApplicationUserManager(AppDBContext dbContext):base(new ApplicationUserRepository(dbContext))
         {

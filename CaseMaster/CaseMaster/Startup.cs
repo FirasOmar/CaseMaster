@@ -1,3 +1,5 @@
+using AutoMapper;
+using CaseMaster.AutoMapper;
 using CaseMaster.Data;
 using CaseMaster.Manager;
 using CaseMaster.Models;
@@ -29,13 +31,27 @@ namespace CaseMaster
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+           
             services.AddDbContext<AppDBContext>(options
                 => options.UseSqlServer(Configuration.GetConnectionString("AppDBContext")));
-            services.AddIdentity<UserViewModel, IdentityRole>().AddEntityFrameworkStores<AppDBContext>();
-            services.ConfigureApplicationCookie(config =>
-            config.LoginPath="/Account/Login");
+            services.ConfigureApplicationCookie(config 
+                =>config.LoginPath="/Account/Login");
+            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<AppDBContext>();
+
+            // Auto Mapper Configurations
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
+            services.AddMvc();
+
             services.AddScoped<OrganizationManager>();
             services.AddScoped<ApplicationUserManager>();
+
 
         }
 
