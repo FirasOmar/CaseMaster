@@ -30,18 +30,28 @@ namespace CaseMaster.Controllers
             string msg = "";
             role.Created = DateTime.Now;
             role.CreatedBy = User.Identity.Name;
-            bool isSaved = _roleManager.Add(role);
-            if (isSaved)
+           var item = _roleManager.GetFirstOrDefault(r => r.Name==role.Name);
+            if(item == null)
             {
-                msg = "saved successfuly.";
-                return RedirectToAction("index");
+                bool isSaved = _roleManager.Add(role);
+                if (isSaved)
+                {
+                    msg = "saved successfuly.";
+                    return RedirectToAction("index");
+                }
+                else
+                {
+                    msg = "Failed to Save.";
+                }
+              
             }
             else
             {
-                msg = "Failed to Save.";
+                msg = "Role Name Already Exists !";
             }
             ViewBag.Msg = msg;
             return View();
+
         }
         public IActionResult Edit(string id)
         {
@@ -57,11 +67,23 @@ namespace CaseMaster.Controllers
         [HttpPost]
         public IActionResult Edit(Role role)
         {
+            string msg = "";
+            var item = _roleManager.Get(r => r.Name==role.Name);
+
+            if(item.Count <= 1) 
+            { 
             var isUpdated = _roleManager.Update(role);
             if (isUpdated)
             {
-                return RedirectToAction("Index");
+                    msg = "Role Updated Successfully !";
+                    return RedirectToAction("Index");
             }
+            }
+            else
+            {
+                msg = "Role Name Already Exists !";
+            }
+            ViewBag.Msg = msg;
             return View(role);
         }
         public ActionResult Details(string id)
