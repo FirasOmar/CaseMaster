@@ -16,5 +16,6 @@ namespace CaseMaster.Data
         }
         public DbSet<Organization> Organizations {get;set;}
         public DbSet<User> User { get; set; }
+        public DbSet<Role> Role { get; set; }
     }
 }

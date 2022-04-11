@@ -51,6 +51,7 @@ namespace CaseMaster
 
             services.AddScoped<OrganizationManager>();
             services.AddScoped<ApplicationUserManager>();
+            services.AddScoped<RoleManager>();
 
 
         }
