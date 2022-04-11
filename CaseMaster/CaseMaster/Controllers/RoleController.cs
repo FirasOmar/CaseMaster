@@ -55,17 +55,40 @@ namespace CaseMaster.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Edit(Role role)
+        public IActionResult Edit(Role role)
         {
-            //var result = await _roleManager.FindByIdAsync(role.Id);
-
-            //result.UserName = user.UserName;
-            //result.Email = user.Email;
-            //result.PhoneNumber = user.PhoneNumber;
-            //result.IsActive = user.IsActive;
-
             var isUpdated = _roleManager.Update(role);
             if (isUpdated)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(role);
+        }
+        public ActionResult Details(string id)
+        {
+            var role = _roleManager.GetFirstOrDefault(c => c.Id == id);
+            if (role == null)
+            {
+                return NotFound();
+            }
+            return View(role);
+        }
+        public ActionResult Delete(string id)
+        {
+            var role = _roleManager.GetFirstOrDefault(c => c.Id == id);
+            if (role == null)
+            {
+                return NotFound();
+            }
+            return View(role);
+        }
+        [HttpPost]
+        public async Task<ActionResult> Delete(Role role)
+        {
+          //  var result = await _roleManager.FindByIdAsync(user.Id);
+
+            bool isDeleted = _roleManager.Delete(role);
+            if (isDeleted)
             {
                 return RedirectToAction("Index");
             }

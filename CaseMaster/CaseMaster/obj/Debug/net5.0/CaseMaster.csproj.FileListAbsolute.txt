@@ -172,3 +172,5 @@ C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Ca
 C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\Role\Index.cshtml.g.cs
 C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\Role\Create.cshtml.g.cs
 C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\Role\Edit.cshtml.g.cs
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\Role\Details.cshtml.g.cs
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\Role\Delete.cshtml.g.cs

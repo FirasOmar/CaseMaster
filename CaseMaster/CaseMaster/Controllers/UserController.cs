@@ -103,7 +103,7 @@ namespace CaseMaster.Controllers
         {
             var result = await _userManager.FindByIdAsync(user.Id);
 
-            bool isDeleted = _ApplicationUserManager.Delete(result);
+            bool isDeleted = _ApplicationUserManager.Delete(user);
             if (isDeleted)
             {
                 return RedirectToAction("Index");
