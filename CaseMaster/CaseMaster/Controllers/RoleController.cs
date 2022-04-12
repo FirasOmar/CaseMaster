@@ -126,25 +126,39 @@ namespace CaseMaster.Controllers
         public ActionResult Assign()
         {
             ViewData["UserId"] = new SelectList(_userManager.GetAll().ToList(), "Id", "UserName");
+          
            ViewData["RoleId"] = new SelectList(_roleManager.GetAll().ToList(), "Id", "Name");
             return View();
         }
         [HttpPost]
         public ActionResult Assign(UserRoleVM userRole)
         {
+            var isCheckRoleAssign = _userRoleManager.Get(c 
+                => c.UserId == userRole.UserId && c.RoleId==userRole.RoleId);
             var msg = "";
-            userRole.Created = DateTime.Now;
-            userRole.CreatedBy = User.Identity.Name;
-            bool isSaved = _userRoleManager.Add(userRole);
-            if (isSaved)
+            if (isCheckRoleAssign.Count > 0)
             {
-                msg = "User Role Saved Successfully!";
-               return RedirectToAction("Index");
+                msg = "This user already assign to this role.";
+                ViewData["UserId"] = new SelectList(_userManager.GetAll().ToList(), "Id", "UserName");
+                ViewData["RoleId"] = new SelectList(_roleManager.GetAll().ToList(), "Id", "Name");
+
             }
             else
             {
-                msg = "User Role Failed To Save!";
+                userRole.Created = DateTime.Now;
+                userRole.CreatedBy = User.Identity.Name;
+                bool isSaved = _userRoleManager.Add(userRole);
+                if (isSaved)
+                {
+                    msg = "User Role Saved Successfully!";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    msg = "User Role Failed To Save!";
+                }
             }
+           
             ViewBag.msg = msg;
             return View();
         }
