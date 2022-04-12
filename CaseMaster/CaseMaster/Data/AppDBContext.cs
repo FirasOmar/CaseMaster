@@ -1,4 +1,5 @@
 ﻿using CaseMaster.Models;
+using CaseMaster.ViewModels;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -14,8 +15,18 @@ namespace CaseMaster.Data
         {
 
         }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            //builder.Entity<UserRoleVM>().HasKey(table => new {
+            //    table.UserId,
+            //    table.RoleId
+            //});
+        }
         public DbSet<Organization> Organizations {get;set;}
         public DbSet<User> User { get; set; }
         public DbSet<Role> Role { get; set; }
+        public DbSet<UserRoleVM> UserRole { get; set; }
+
     }
 }

@@ -1,6 +1,9 @@
 ﻿using CaseMaster.Manager;
 using CaseMaster.Models;
+using CaseMaster.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +14,13 @@ namespace CaseMaster.Controllers
     public class RoleController : Controller
     {
         private RoleManager _roleManager;
-        public RoleController(RoleManager roleManager)
+        private ApplicationUserManager _userManager;
+        private UserRoleManager _userRoleManager;
+        public RoleController(RoleManager roleManager, ApplicationUserManager userManager,UserRoleManager userRoleManager)
         {
             _roleManager = roleManager;
+            _userManager = userManager;
+            _userRoleManager = userRoleManager;
         }
         public IActionResult Index()
         {
@@ -115,6 +122,31 @@ namespace CaseMaster.Controllers
                 return RedirectToAction("Index");
             }
             return View(role);
+        }
+        public ActionResult Assign()
+        {
+            ViewData["UserId"] = new SelectList(_userManager.GetAll().ToList(), "Id", "UserName");
+           ViewData["RoleId"] = new SelectList(_roleManager.GetAll().ToList(), "Id", "Name");
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Assign(UserRoleVM userRole)
+        {
+            var msg = "";
+            userRole.Created = DateTime.Now;
+            userRole.CreatedBy = User.Identity.Name;
+            bool isSaved = _userRoleManager.Add(userRole);
+            if (isSaved)
+            {
+                msg = "User Role Saved Successfully!";
+               return RedirectToAction("Index");
+            }
+            else
+            {
+                msg = "User Role Failed To Save!";
+            }
+            ViewBag.msg = msg;
+            return View();
         }
     }
 }
