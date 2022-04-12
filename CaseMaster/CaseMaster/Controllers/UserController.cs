@@ -44,6 +44,7 @@ namespace CaseMaster.Controllers
             bool isSaved = _ApplicationUserManager.Add(user);
             if (isSaved)
             {
+               // var isSaveRole = await _userManager.AddToRoleAsync(user, role: "User");
                 msg = "saved successfuly.";
                 return RedirectToAction("index");
             }

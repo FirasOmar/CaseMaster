@@ -38,7 +38,8 @@ namespace CaseMaster.Controllers
             var result = await userManager.CreateAsync(user, register.Password);
             if (result.Succeeded)
             {
-               await signInManager.SignInAsync(user, false);
+                //var isSaveRole = await userManager.AddToRoleAsync(user, role: "User");
+                await signInManager.SignInAsync(user, false);
                 return RedirectToAction("Index", "Home");
             }
             foreach(var error in result.Errors)
