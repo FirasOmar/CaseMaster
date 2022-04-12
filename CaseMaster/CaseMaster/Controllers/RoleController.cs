@@ -112,9 +112,8 @@ namespace CaseMaster.Controllers
             return View(role);
         }
         [HttpPost]
-        public async Task<ActionResult> Delete(Role role)
+        public ActionResult Delete(Role role)
         {
-          //  var result = await _roleManager.FindByIdAsync(user.Id);
 
             bool isDeleted = _roleManager.Delete(role);
             if (isDeleted)
@@ -161,6 +160,53 @@ namespace CaseMaster.Controllers
            
             ViewBag.msg = msg;
             return View();
+        }
+
+        public ActionResult AssignUserRole()
+        {
+            var result = from ur in _userRoleManager.GetAll()
+                         join r in _roleManager.GetAll()
+                         on ur.RoleId equals r.Id
+                         join u in _userManager.GetAll() on ur.UserId equals u.Id
+                         
+                         select new UserRoleMappingViewModel()
+                         {
+                             UserId=ur.UserId,
+                             RoleId=ur.RoleId,
+                             UserName=u.UserName,
+                             RoleName=r.Name
+                         };
+            ViewBag.userRoles = result;
+            return View();
+        }
+        public ActionResult DeleteAssignedRole(string userId, string roleId)
+        {
+            var userRole = _userRoleManager.GetFirstOrDefault(c => c.UserId == userId && c.RoleId== roleId);
+            var _UserName = _userManager.GetFirstOrDefault(c => c.Id == userId).UserName;
+            var _RoleName = _roleManager.GetFirstOrDefault(c => c.Id == roleId).Name;
+            var userRoleVM = new UserRoleMappingViewModel()
+            {
+                RoleId= roleId,
+                UserId= userId,
+                UserName=_UserName,
+                RoleName = _RoleName
+            };
+            if (userRoleVM == null)
+            {
+                return NotFound();
+            }
+            return View(userRoleVM);
+        }
+        [HttpPost]
+        public ActionResult DeleteAssignedRole(UserRoleMappingViewModel ur)
+        {
+            var userRole = _userRoleManager.GetFirstOrDefault(c => c.UserId == ur.UserId && c.RoleId == ur.RoleId);
+            bool isDeleted = _userRoleManager.Delete(userRole);
+            if (isDeleted)
+            {
+                return RedirectToAction("AssignUserRole");
+            }
+            return View(ur);
         }
     }
 }

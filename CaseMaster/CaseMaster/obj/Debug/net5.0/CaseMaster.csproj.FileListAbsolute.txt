@@ -175,3 +175,5 @@ C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\re
 C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\CaseMaster.pdb
 C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\CaseMaster.genruntimeconfig.cache
 C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\CaseMaster.csproj.AssemblyReference.cache
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\Role\AssignUserRole.cshtml.g.cs
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\Role\DeleteAssignedRole.cshtml.g.cs

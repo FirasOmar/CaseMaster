@@ -1,0 +1,40 @@
+﻿@model IEnumerable<CaseMaster.ViewModels.UserRoleMappingViewModel>
+
+@{
+    ViewData["Title"] = "AssignUserRole";
+}
+
+<h1>AssignUserRole</h1>
+
+<p>
+    <a asp-action="Assign">Assign</a>
+</p>
+<table class="table">
+    <thead>
+        <tr> 
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoleName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in ViewBag.userRoles) {
+        <tr>
+           
+            <td>
+                @item.UserName
+            </td>
+            <td>
+                @item.RoleName
+            </td>
+            <td>  
+                @Html.ActionLink("Delete", "DeleteAssignedRole", new {  userId=item.UserId,roleId=item.RoleId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
