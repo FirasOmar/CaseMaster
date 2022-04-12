@@ -3,6 +3,7 @@ using CaseMaster.Data;
 using CaseMaster.Manager;
 using CaseMaster.Models;
 using CaseMaster.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace CaseMaster.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
         private ApplicationUserManager _ApplicationUserManager;

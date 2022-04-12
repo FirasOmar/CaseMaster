@@ -1,6 +1,7 @@
 ﻿using CaseMaster.Manager;
 using CaseMaster.Models;
 using CaseMaster.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -10,7 +11,8 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace CaseMaster.Controllers
-{
+{   
+    [Authorize]
     public class RoleController : Controller
     {
         private RoleManager _roleManager;
@@ -150,7 +152,7 @@ namespace CaseMaster.Controllers
                 if (isSaved)
                 {
                     msg = "User Role Saved Successfully!";
-                    return RedirectToAction("Index");
+                    return RedirectToAction("AssignUserRole");
                 }
                 else
                 {
