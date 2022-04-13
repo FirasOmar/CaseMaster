@@ -1,6 +1,7 @@
 ﻿using CaseMaster.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Localization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +11,19 @@ namespace CaseMaster.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly IHtmlLocalizer<AccountController> _localizer;
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IHtmlLocalizer<AccountController> localizer)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            _localizer = localizer;
         }
         public IActionResult Index()
         {
+          
             return View();
         }
         public ActionResult Register()
@@ -50,7 +54,7 @@ namespace CaseMaster.Controllers
         }
 
         public ActionResult Login()
-        {
+        {          
             return View();
         }
         [HttpPost]
@@ -76,7 +80,7 @@ namespace CaseMaster.Controllers
         }
       
         public ActionResult Logout()
-        {           
+        {
             return View();
         }
         [HttpPost]

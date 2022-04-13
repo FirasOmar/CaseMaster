@@ -19,10 +19,16 @@
 <body>
     <div id="wrapper">
         <div class="navbar-custom">
-            @if (!signInManager.IsSignedIn(User))
-            {
-
-                <ul class="list-unstyled topnav-menu float-right mb-0">
+           
+            <ul class="list-unstyled topnav-menu float-right mb-0">
+                <li class="dropdown global-list show">
+                    <a class="nav-link dropdown-toggle  waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="true">
+                        <i class="fe-globe noti-icon"></i>
+                    </a>
+                    @await Html.PartialAsync("_Culture")
+                </li>
+                @if (!signInManager.IsSignedIn(User))
+                {
                     <li class="dropdown notification-list">
                         <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
 
@@ -47,11 +53,10 @@
                         </div>
                     </li>
 
-                </ul>
-            }
-            else
-            {
-                <ul class="list-unstyled topnav-menu float-right mb-0">
+
+                }
+                else
+                {
                     <li class="dropdown notification-list">
                         <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                             <img src="~/images/users/user-1.jpg" alt="user-image" class="rounded-circle">
@@ -76,31 +81,32 @@
                         </div>
                     </li>
 
-                </ul>
-            }
-            <!-- LOGO -->
-            <div class="logo-box">
-                <a asp-controller="Home" asp-action="Index" class="logo text-center">
-                    <span class="logo-lg">
-                        <img src="~/images/logo-light.png" alt="" height="18">
-                        <!-- <span class="logo-lg-text-light">UBold</span> -->
-                    </span>
-                    <span class="logo-sm">
-                        <!-- <span class="logo-sm-text-dark">U</span> -->
-                        <img src="~/images/logo-sm.png" alt="" height="24">
-                    </span>
-                </a>
-            </div>
-            @if (signInManager.IsSignedIn(User))
-            {
-                <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
-                    <li>
-                        <button class="button-menu-mobile waves-effect waves-light">
-                            <i class="fe-menu"></i>
-                        </button>
-                    </li>
-                </ul>
-            }
+
+                }
+            </ul>
+                <!-- LOGO -->
+                <div class="logo-box">
+                    <a asp-controller="Home" asp-action="Index" class="logo text-center">
+                        <span class="logo-lg">
+                            <img src="~/images/logo-light.png" alt="" height="18">
+                            <!-- <span class="logo-lg-text-light">UBold</span> -->
+                        </span>
+                        <span class="logo-sm">
+                            <!-- <span class="logo-sm-text-dark">U</span> -->
+                            <img src="~/images/logo-sm.png" alt="" height="24">
+                        </span>
+                    </a>
+                </div>
+                @if (signInManager.IsSignedIn(User))
+                {
+                    <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+                        <li>
+                            <button class="button-menu-mobile waves-effect waves-light">
+                                <i class="fe-menu"></i>
+                            </button>
+                        </li>
+                    </ul>
+                }
             </div>
         @*<header>
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">

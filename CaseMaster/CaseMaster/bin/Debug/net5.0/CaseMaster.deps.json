@@ -317,6 +317,14 @@
         "runtime": {
           "CaseMaster.dll": {}
         },
+        "resources": {
+          "ar/CaseMaster.resources.dll": {
+            "locale": "ar"
+          },
+          "en/CaseMaster.resources.dll": {
+            "locale": "en"
+          }
+        },
         "compile": {
           "CaseMaster.dll": {}
         }

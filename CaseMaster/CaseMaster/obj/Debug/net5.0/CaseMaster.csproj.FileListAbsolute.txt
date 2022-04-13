@@ -178,3 +178,17 @@ C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Ca
 C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\Role\AssignUserRole.cshtml.g.cs
 C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\Role\DeleteAssignedRole.cshtml.g.cs
 C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\Shared\SideMenu.cshtml.g.cs
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\bin\Debug\net5.0\en\CaseMaster.resources.dll
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\CaseMaster.Resource.Views.Account.Login.en.resources
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\CaseMaster.csproj.GenerateResource.cache
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\en\CaseMaster.resources.dll
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\bin\Debug\net5.0\ar\CaseMaster.resources.dll
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\CaseMaster.Resource.Controllers.AccountController.ar.resources
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\CaseMaster.Resource.Controllers.AccountController.en.resources
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\CaseMaster.Resource.Views.Account.Login.ar.resources
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\ar\CaseMaster.resources.dll
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\Razor\Views\Shared\_Culture.cshtml.g.cs
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\CaseMaster.Resource.Views.Home.Index.ar.resources
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\CaseMaster.Resource.Views.Home.Index.en.resources
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\CaseMaster.Resource.Controllers.HomeController.en.resources
+C:\Users\Firas\source\repos\CaseMaster\CaseMaster\CaseMaster\obj\Debug\net5.0\CaseMaster.Resource.Controllers.HomeController.ar.resources

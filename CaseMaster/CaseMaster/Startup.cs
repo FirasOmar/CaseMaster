@@ -7,12 +7,16 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -31,7 +35,6 @@ namespace CaseMaster
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-           
             services.AddDbContext<AppDBContext>(options
                 => options.UseSqlServer(Configuration.GetConnectionString("AppDBContext")));
             services.ConfigureApplicationCookie(config 
@@ -49,6 +52,22 @@ namespace CaseMaster
 
             services.AddMvc();
 
+            services.AddLocalization(opt => { opt.ResourcesPath = "Resource"; });
+            services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+                .AddDataAnnotationsLocalization();
+
+            services.Configure<RequestLocalizationOptions>(
+                opt =>
+                {
+                    var supportedCultures = new List<CultureInfo>
+                    {
+                        new CultureInfo("en"),
+                        new CultureInfo("ar")
+                    };
+                    opt.DefaultRequestCulture = new RequestCulture(culture: "en", uiCulture: "en");
+                    opt.SupportedCultures = supportedCultures;
+                    opt.SupportedUICultures = supportedCultures;
+                }); 
             services.AddScoped<OrganizationManager>();
             services.AddScoped<ApplicationUserManager>();
             services.AddScoped<RoleManager>();
@@ -74,6 +93,8 @@ namespace CaseMaster
             app.UseStaticFiles();
 
             app.UseRouting();
+            var locOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(locOptions.Value);
             app.UseAuthentication();
             app.UseAuthorization();
 
@@ -83,6 +104,13 @@ namespace CaseMaster
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+        
+            //var supportedCultures = new[] {"en","ar"};
+            //var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[0])
+            //    .AddSupportedCultures(supportedCultures)
+            //    .AddSupportedUICultures(supportedCultures);
+            //app.UseRequestLocalization(localizationOptions);
         }
     }
 }
