@@ -14,7 +14,15 @@
     <!-- App css -->
     <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/css/app.min.css" rel="stylesheet" type="text/css" />
+    @if (System.Globalization.CultureInfo.CurrentCulture.Name == "ar")
+    {
+        <link href="~/css/app-rtl.min.css" rel="stylesheet" type="text/css" />
+    }
+    else
+    {
+        <link href="~/css/app.min.css" rel="stylesheet" type="text/css" />
+    }
+
 </head>
 <body>
     <div id="wrapper">
@@ -22,7 +30,12 @@
            
             <ul class="list-unstyled topnav-menu float-right mb-0">
                 <li class="dropdown global-list show">
+                    <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
 
+                        <span class="pro-user-name ml-1">
+                            Login <i class="mdi mdi-chevron-down"></i>
+                        </span>
+                    </a>
                     @await Html.PartialAsync("_Culture")
                 </li>
                 @if (!signInManager.IsSignedIn(User))

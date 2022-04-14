@@ -3,30 +3,28 @@
 
 @{
     var culture = Context.Features.Get<Microsoft.AspNetCore.Localization.IRequestCultureFeature>();
-    var cultureList = locOptions.Value.SupportedUICultures.Select(x => new SelectListItem { Value=x.Name,Text=localizer.GetString(x.Name) }).ToList();
+    var cultureList = locOptions.Value.SupportedUICultures.Select(x => new SelectListItem { Value = x.Name, Text = localizer.GetString(x.Name) }).ToList();
     var last = cultureList.Last();
     var returnUrl = string.IsNullOrWhiteSpace(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}{Context.Request.QueryString}";
 }
-<style>
-    .langSelect > option {
 
-        color: #6c757d;
-        text-align: inherit;
-        white-space: nowrap;
-        background-color: transparent;     
-        font-size: large;
-        border:none!important;
-    }
-    .langSelect > option:hover {
-        cursor:pointer!important;
-        background-color:lightgray;
-    }
-</style>
-    <form asp-action="CultureManagement" asp-controller="Home" method="post" asp-route-returnUrl="@returnUrl">
-       
-                <select class="nav-link waves-effect waves-light langSelect" style="height:70px;border:none;" name="culture" asp-for="@culture.RequestCulture.UICulture.Name" asp-items="cultureList"
-                        onchange="this.form.submit();">
-                    <optgroup></optgroup>
-                </select>
+<div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+    <form class="" name="lang" id="lang" asp-action="CultureManagement" asp-controller="Home" method="post" asp-route-returnUrl="@returnUrl">
 
-        </form>
+        <input type="hidden" id="culture" name="culture" />
+        @foreach (var i in cultureList)
+        {
+            <!-- item-->
+            <a style="cursor:pointer;" onclick="$('#culture').val('@i.Value'); $('#lang').submit();" class="dropdown-item notify-item">
+                <i class="fe-user"></i>
+                <span>@i.Text</span>
+            </a>
+
+            @if (i.Value != last.Value)
+            {
+                <div class="dropdown-divider"></div>
+            }
+        }
+
+    </form>
+</div>
