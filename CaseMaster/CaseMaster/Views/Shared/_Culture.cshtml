@@ -3,14 +3,30 @@
 
 @{
     var culture = Context.Features.Get<Microsoft.AspNetCore.Localization.IRequestCultureFeature>();
-    var cultureList = locOptions.Value.SupportedUICultures.Select(x => new SelectListItem { Value=x.Name,Text=x.Name}).ToList();
+    var cultureList = locOptions.Value.SupportedUICultures.Select(x => new SelectListItem { Value=x.Name,Text=localizer.GetString(x.Name) }).ToList();
     var last = cultureList.Last();
     var returnUrl = string.IsNullOrWhiteSpace(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}{Context.Request.QueryString}";
 }
-<div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+<style>
+    .langSelect > option {
+
+        color: #6c757d;
+        text-align: inherit;
+        white-space: nowrap;
+        background-color: transparent;     
+        font-size: large;
+        border:none!important;
+    }
+    .langSelect > option:hover {
+        cursor:pointer!important;
+        background-color:lightgray;
+    }
+</style>
     <form asp-action="CultureManagement" asp-controller="Home" method="post" asp-route-returnUrl="@returnUrl">
-        <select name="culture" asp-for="@culture.RequestCulture.UICulture.Name" asp-items="cultureList"
-                onchange="this.form.submit();"></select>
-    
-    </form>
-</div>
+       
+                <select class="nav-link waves-effect waves-light langSelect" style="height:70px;border:none;" name="culture" asp-for="@culture.RequestCulture.UICulture.Name" asp-items="cultureList"
+                        onchange="this.form.submit();">
+                    <optgroup></optgroup>
+                </select>
+
+        </form>

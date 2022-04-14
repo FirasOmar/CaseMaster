@@ -22,9 +22,7 @@
            
             <ul class="list-unstyled topnav-menu float-right mb-0">
                 <li class="dropdown global-list show">
-                    <a class="nav-link dropdown-toggle  waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="true">
-                        <i class="fe-globe noti-icon"></i>
-                    </a>
+
                     @await Html.PartialAsync("_Culture")
                 </li>
                 @if (!signInManager.IsSignedIn(User))
