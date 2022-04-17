@@ -8,11 +8,29 @@
             <ul class="metismenu" id="side-menu">
 
                 <li>
-                    <a  href="@Url.Action(" Index","Home")">
+                    <a href="@Url.Action("Index","Home")">
                         <i class="mdi mdi-calendar"></i>
-                        <span >  الرئيسية </span>
+                        <span>  الرئيسية </span>
                     </a>
                 </li>
-              
+                <li class="">
+                    <a href="javascript: void(0);" aria-expanded="false">
+                        <i class="fe-users"></i>
+                        <span> User Management </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+                        <li>
+                            <a href="@Url.Action("Index","User")">Users</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","Role")">Roles</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("AssignUserRole","Role")">User Roles</a>
+                        </li>     
+                    </ul>
+                </li>
+
             </ul>
 </div></div></div>
